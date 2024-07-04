@@ -1,5 +1,9 @@
 # DEFINIRE TUTTE LE CLASSI:
 # Definire la classe PuntoCartesiano
+class PuntoCartesiano:
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
 
 # Definire la classe Umano
 

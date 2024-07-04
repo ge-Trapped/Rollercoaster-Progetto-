@@ -79,3 +79,17 @@ class Attrazione(Location):
     def __str__(self):
         return f"{self.nome = }, self.posizione = {self.posizione},  {self.capienzaMassima = }, {self.capienzaAttuale = }, {self.perBambini = }, {self.tempoAttesa = }"
 
+"""
+OPZIONE 1
+
+Creare una funzione che:
+
+- Definire una lista con: 1 adulto, 1 bambino, 1 o + ragazzi;
+- Confronti i cognomi;
+- In caso di congomi uguali, aggiunga il ragazzo alla famiglia.
+
+OPZIONE 2
+
+Creare 4 liste con al suo interno oggetti delle classi Adulto, Ragazzo, Bambino
+
+"""

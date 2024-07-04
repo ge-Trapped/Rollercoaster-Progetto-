@@ -24,6 +24,9 @@ class Umano:
     
     def __str__(self):
         return f'{self.nome}, {self.cognome}, {self.posizione}, {self.tipo}, {self.attrazioniDesiderate}'
+    
+    def __repr__(self) -> str:
+        return f'{self.nome}, {self.cognome}, {self.posizione}, {self.tipo}, {self.attrazioniDesiderate}'
 
 # Definire la classe Bambino (ereditaria Umano)
 class Bambino(Umano):
@@ -38,6 +41,7 @@ class Ragazzo(Umano):
         attrazioni = ["Raptor", "Blue Tornado", "Space Vertigo"]
         random.shuffle(attrazioni)
         super().__init__(nome, cognome, posizione, "Ragazzo", attrazioni)
+        
 
 # Definire la classe Adulto (ereditaria Umano)
 class Adulto(Umano):
@@ -77,9 +81,20 @@ class Attrazione(Location):
         self.capienzaMassima = capienzaMassima
         self.tempoAttesa = tempoAttesa
         self.perBambini = perBambini
+        self.clientiServiti = []
+        self.clientiInAttesa = []
 
     def __str__(self):
         return f"{self.nome = }, self.posizione = {self.posizione},  {self.capienzaMassima = }, {self.capienzaAttuale = }, {self.perBambini = }, {self.tempoAttesa = }"
+    
+    def accettaUmano(self, u):
+        if self.capienzaAttuale > 0:
+            self.clientiServiti.append(u)
+            self.capienzaAttuale -= 1
+        else:
+            self.clientiInAttesa.append(u)
+
+
 
 """
 OPZIONE 1
@@ -130,21 +145,40 @@ pRaptor = PuntoCartesiano(4, 4)
 pTornado = PuntoCartesiano(5, 5)
 pVertigo = PuntoCartesiano(6, 6)
 
-totaleAttrazioni = [
-    Attrazione("Tazze", pTazze, 10, 0, True, 5),
-    Attrazione("Bruco", pBruco, 10, 0, True, 5),
-    Attrazione("Covo dei pirati", pCovo, 10, 0, True, 5),
-    Attrazione("Raptor", pRaptor, 10, 0, False, 5),
-    Attrazione("Blue Tornado", pTornado, 10, 0, False, 5), 
-    Attrazione("Space Vertigo", pVertigo, 10, 0, False, 5)
-    ]
+totaleAttrazioni = {
+    'Tazze': Attrazione("Tazze", pTazze, 10, 0, True, 5),
+    'Bruco': Attrazione("Bruco", pBruco, 10, 0, True, 5),
+    'Covo dei pirati': Attrazione("Covo dei pirati", pCovo, 10, 0, True, 5),
+    'Raptor': Attrazione("Raptor", pRaptor, 10, 0, False, 5),
+    'Blue Tornado': Attrazione("Blue Tornado", pTornado, 10, 0, False, 5), 
+    'Space Vertigo': Attrazione("Space Vertigo", pVertigo, 10, 0, False, 5)
+}
 
 clientiServiti = []
-clientiInAttesa = []
+clientiInAttesa = [famigliaNeri[0], famigliaNeri[1]]
+
+# print(clientiInAttesa)
+
+listaBambini = [Bambino('Sergio', 'Rossi', p1) for x in range(100)]
+listaRagazzi = [Ragazzo('Luca', 'Neri', p1) for x in range(100)]
+
+clientiInSospeso = listaBambini.copy()
+clientiInSospeso.extend(listaRagazzi)
+
+maxRep = 10
+
+for i in range(maxRep):
+    for umano in clientiInSospeso:
+        totaleAttrazioni[umano.attrazioniDesiderate[0]].accettaUmano(umano)
+
+
+
 
 # Simula con un ciclo for le due code di ciascuna Attrazione, stampando a video per ogni iterazione il seguente messaggio:
-for attrazione in totaleAttrazioni:
-    pass
+#for attrazione in totaleAttrazioni:
+    
+ 
+
 # <Attrazione> ---> <Clienti Serviti>: <lunghezza della coda clientiServiti> | <Clienti in Attesa> : <lunghezza della coda clientiInAttesa>
 # for umano in attrazione:
 # listaClientiServiti.append(umano)

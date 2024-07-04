@@ -47,8 +47,35 @@ class Location():
     def __str__(self):
         return f"{self.nome}, {self.posizione}"
 
-
-
 # Definire la classe Ristoro
+class Ristoro(Location): 
+    def __init__(self, nome: str, posizione: PuntoCartesiano, capienzaMassima: int, capienzaAttuale: int):
+        super().__init__(
+            nome = nome, 
+            posizione = posizione, 
+            )
+        self.capienzaMassima = capienzaMassima
+        self.capienzaAttuale = capienzaAttuale
+
+    def __str__(self):
+        return f"{self.nome = }, self.posizione = {self.posizione},  {self.capienzaMassima = }, {self.capienzaAttuale = }"
 
 # Definire la classe Attrazione
+class Attrazione(Location): 
+    def __init__(self, nome: str, posizione: PuntoCartesiano, capienzaMassima: int, capienzaAttuale: int, perBambini: bool, tempoAttesa: int):
+        super().__init__(
+            nome = nome, 
+            posizione = posizione,  
+            capienzaMassima = capienzaMassima, 
+            capienzaAttuale = capienzaAttuale,
+            perBambini = perBambini, 
+            tempoAttesa = tempoAttesa
+            )
+        self.capienzaAttuale = capienzaAttuale
+        self.capienzaMassima = capienzaMassima
+        self.tempoAttesa = tempoAttesa
+        self.perBambini = perBambini
+
+    def __str__(self):
+        return f"{self.nome = }, self.posizione = {self.posizione},  {self.capienzaMassima = }, {self.capienzaAttuale = }, {self.perBambini = }, {self.tempoAttesa = }"
+

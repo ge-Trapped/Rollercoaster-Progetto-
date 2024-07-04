@@ -171,7 +171,9 @@ for i in range(maxRep):
     for umano in clientiInSospeso:
         totaleAttrazioni[umano.attrazioniDesiderate[0]].accettaUmano(umano)
 
-
+# Capire se l'attesa per l'attarzione è finita (se tempo attesa = 0), allora attrazine finita, dunque si svuota (capire coem svuotare) Da clienti serviti a clienti in sospeso. 
+# Riempirla di nuova: da clienti in attesa a clienti serviti. Tempo di attesa = 0, quindi resettare tempo di attesa (non è detto che possa ripartire, poiché potrebbero eseserci non abbastanza clienti in attesa
+# richiede di settare una condizione per verificare se l'attrazione sia piena o meno: se peina riparte (tempo di attesa settato a 5); altrimenti sta lì ad aspettare, dunque aspettare i prossimi.
 
 
 # Simula con un ciclo for le due code di ciascuna Attrazione, stampando a video per ogni iterazione il seguente messaggio:

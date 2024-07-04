@@ -65,11 +65,7 @@ class Attrazione(Location):
     def __init__(self, nome: str, posizione: PuntoCartesiano, capienzaMassima: int, capienzaAttuale: int, perBambini: bool, tempoAttesa: int):
         super().__init__(
             nome = nome, 
-            posizione = posizione,  
-            capienzaMassima = capienzaMassima, 
-            capienzaAttuale = capienzaAttuale,
-            perBambini = perBambini, 
-            tempoAttesa = tempoAttesa
+            posizione = posizione
             )
         self.capienzaAttuale = capienzaAttuale
         self.capienzaMassima = capienzaMassima
@@ -79,3 +75,17 @@ class Attrazione(Location):
     def __str__(self):
         return f"{self.nome = }, self.posizione = {self.posizione},  {self.capienzaMassima = }, {self.capienzaAttuale = }, {self.perBambini = }, {self.tempoAttesa = }"
 
+# Definire una funzione che crea una famiglia
+# def creaFamiglia(cognome: str, posizione: PuntoCartesiano):
+#     famiglia = [
+#         Adulto("Adulto", cognome, posizione),
+#         Bambino("Bambino", cognome, posizione),
+#         Ragazzo("Ragazzo", cognome, posizione)
+#     ]
+
+# famiglie = [
+#     creaFamiglia("Rossi", PuntoCartesiano(0, 0)),
+#     creaFamiglia("Bianchi", PuntoCartesiano(0, 0)),
+#     creaFamiglia("Verdi", PuntoCartesiano(0, 0)),
+#     creaFamiglia("Neri", PuntoCartesiano(0, 0))
+# ]

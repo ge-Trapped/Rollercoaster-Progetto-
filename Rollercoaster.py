@@ -28,7 +28,7 @@ class Umano:
 # Definire la classe Bambino (ereditaria Umano)
 class Bambino(Umano):
     def __init__(self, nome: str, cognome: str, posizione: PuntoCartesiano):
-        attrazioni = ["tazze", "bruco", "covo dei pirati"]
+        attrazioni = ["Tazze", "Bruco", "Covo dei pirati"]
         random.shuffle(attrazioni)
         super().__init__(nome, cognome, posizione, "Bambino", attrazioni)
 
@@ -121,5 +121,40 @@ famigliaBianchi = [Adulto('Tito', 'Bianchi', p1), Ragazzo('Paolo', 'Bianchi', p1
 famigliaNeri = [Adulto('Sempronia', 'Neri', p1), Ragazzo('Luca', 'Neri', p1), Bambino('Alex', 'Neri', p1)]
 
 
-print(famigliaBianchi[2])
-print(famigliaVerdi[2])
+# CREAZIONE DELLE CODE
+
+pTazze = PuntoCartesiano(1, 1)
+pBruco = PuntoCartesiano(2, 2)
+pCovo = PuntoCartesiano(3, 3)
+pRaptor = PuntoCartesiano(4, 4)
+pTornado = PuntoCartesiano(5, 5)
+pVertigo = PuntoCartesiano(6, 6)
+
+totaleAttrazioni = [
+    Attrazione("Tazze", pTazze, 10, 0, True, 5),
+    Attrazione("Bruco", pBruco, 10, 0, True, 5),
+    Attrazione("Covo dei pirati", pCovo, 10, 0, True, 5),
+    Attrazione("Raptor", pRaptor, 10, 0, False, 5),
+    Attrazione("Blue Tornado", pTornado, 10, 0, False, 5), 
+    Attrazione("Space Vertigo", pVertigo, 10, 0, False, 5)
+    ]
+
+clientiServiti = []
+clientiInAttesa = []
+
+# Simula con un ciclo for le due code di ciascuna Attrazione, stampando a video per ogni iterazione il seguente messaggio:
+for attrazione in totaleAttrazioni:
+    pass
+# <Attrazione> ---> <Clienti Serviti>: <lunghezza della coda clientiServiti> | <Clienti in Attesa> : <lunghezza della coda clientiInAttesa>
+# for umano in attrazione:
+# listaClientiServiti.append(umano)
+# capienzaAttuale -= 1
+# if capienzaAttuale == 0 --> listaClientiInAttesa.append(umano)
+# if capienzaAttuale == 0 --> "parte" il giro, tempoAttesa = 5
+# while tempoAttesa != 0:
+# for giro in range(5):
+# tempoAttesa -= 1
+# print(f"Giro {i+1} --- {tempoAttesa = } minuti)
+# alla fine del ciclo while, capienzaAttuale = capienzaMassima_Attrazione
+
+# Creo codaClientiInSospeso

@@ -1,3 +1,5 @@
+import random
+
 ## DEFINIRE TUTTE LE CLASSI:
 
 # Definire la classe PuntoCartesiano
@@ -26,12 +28,16 @@ class Umano:
 # Definire la classe Bambino (ereditaria Umano)
 class Bambino(Umano):
     def __init__(self, nome: str, cognome: str, posizione: PuntoCartesiano):
-        super().__init__(nome, cognome, posizione, "Bambino", ["tazze", "bruco", "covo dei pirati"])
+        attrazioni = ["tazze", "bruco", "covo dei pirati"]
+        random.shuffle(attrazioni)
+        super().__init__(nome, cognome, posizione, "Bambino", attrazioni)
 
 # Definire la classe Ragazzo (ereditaria Umano)
 class Ragazzo(Umano):
     def __init__(self, nome: str, cognome: str, posizione: PuntoCartesiano):
-        super().__init__(nome, cognome, posizione, "Ragazzo", ["Raptor", "Blue Tornado", "Space Vertigo"])
+        attrazioni = ["Raptor", "Blue Tornado", "Space Vertigo"]
+        random.shuffle(attrazioni)
+        super().__init__(nome, cognome, posizione, "Ragazzo", attrazioni)
 
 # Definire la classe Adulto (ereditaria Umano)
 class Adulto(Umano):
@@ -113,3 +119,7 @@ famigliaVerdi = [Adulto('Klaus', 'Verdi', p1), Ragazzo('Francesco', 'Verdi', p1)
 famigliaBianchi = [Adulto('Tito', 'Bianchi', p1), Ragazzo('Paolo', 'Bianchi', p1), Bambino('Claudia', 'Bianchi', p1)]
 
 famigliaNeri = [Adulto('Sempronia', 'Neri', p1), Ragazzo('Luca', 'Neri', p1), Bambino('Alex', 'Neri', p1)]
+
+
+print(famigliaBianchi[2])
+print(famigliaVerdi[2])

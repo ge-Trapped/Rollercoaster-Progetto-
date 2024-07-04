@@ -75,20 +75,6 @@ class Attrazione(Location):
     def __str__(self):
         return f"{self.nome = }, self.posizione = {self.posizione},  {self.capienzaMassima = }, {self.capienzaAttuale = }, {self.perBambini = }, {self.tempoAttesa = }"
 
-# Definire una funzione che crea una famiglia
-# def creaFamiglia(cognome: str, posizione: PuntoCartesiano):
-#     famiglia = [
-#         Adulto("Adulto", cognome, posizione),
-#         Bambino("Bambino", cognome, posizione),
-#         Ragazzo("Ragazzo", cognome, posizione)
-#     ]
-
-# famiglie = [
-#     creaFamiglia("Rossi", PuntoCartesiano(0, 0)),
-#     creaFamiglia("Bianchi", PuntoCartesiano(0, 0)),
-#     creaFamiglia("Verdi", PuntoCartesiano(0, 0)),
-#     creaFamiglia("Neri", PuntoCartesiano(0, 0))
-# ]
 """
 OPZIONE 1
 
@@ -102,4 +88,28 @@ OPZIONE 2
 
 Creare 4 liste con al suo interno oggetti delle classi Adulto, Ragazzo, Bambino
 
+Definire una funzione che crea una famiglia
+def creaFamiglia(cognome: str, posizione: PuntoCartesiano):
+#     famiglia = [
+#         Adulto("Adulto", cognome, posizione),
+#         Bambino("Bambino", cognome, posizione),
+#         Ragazzo("Ragazzo", cognome, posizione)
+#     ]
+
+# famiglie = [
+#     creaFamiglia("Rossi", PuntoCartesiano(0, 0)),
+#     creaFamiglia("Bianchi", PuntoCartesiano(0, 0)),
+#     creaFamiglia("Verdi", PuntoCartesiano(0, 0)),
+#     creaFamiglia("Neri", PuntoCartesiano(0, 0))
+# ]
 """
+
+# CREAZIONE DELLE FAMIGLIE MEDIANTE QUATTRI SEPARATE LISTE
+
+famigliaRossi = [Adulto('Claudio', 'Rossi', p1), Ragazzo('Alice', 'Rossi', p1), Bambino('Sergio', 'Rossi', p1)]
+
+famigliaVerdi = [Adulto('Klaus', 'Verdi', p1), Ragazzo('Francesco', 'Verdi', p1), Bambino('Giulia', 'Verdi', p1)]
+
+famigliaBianchi = [Adulto('Tito', 'Bianchi', p1), Ragazzo('Paolo', 'Bianchi', p1), Bambino('Claudia', 'Bianchi', p1)]
+
+famigliaNeri = [Adulto('Sempronia', 'Neri', p1), Ragazzo('Luca', 'Neri', p1), Bambino('Alex', 'Neri', p1)]

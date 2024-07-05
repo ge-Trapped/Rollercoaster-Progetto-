@@ -176,11 +176,13 @@ for i in range(maxRep):
         clientiInSospeso.remove(umano)
     for attrazione in totaleAttrazioni.values():
         if attrazione.capienzaAttuale == 0:
+            print(f"<Attrazione> ---> {attrazione.nome} <Clienti Serviti>: <{len(attrazione.clientiServiti)}> | <Clienti in Attesa> : <{len(attrazione.clientiInAttesa)}> | <Tempo di Attesa> : <{attrazione.tempoAttesa} minuti>")
             attrazione.tempoAttesa = 5 
             while attrazione.tempoAttesa != 0:
-                attrazione.tempoAttesa -= 1
                 print(f"{attrazione.tempoAttesa = } minuti")
+                attrazione.tempoAttesa -= 1
             attrazione.capienzaAttuale = attrazione.capienzaMassima
+            print('Giro terminato!')
             
 
 

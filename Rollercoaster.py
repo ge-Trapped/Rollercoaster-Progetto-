@@ -93,6 +93,8 @@ class Attrazione(Location):
             self.capienzaAttuale -= 1
         else:
             self.clientiInAttesa.append(u)
+        
+
 
 
 
@@ -146,16 +148,16 @@ pTornado = PuntoCartesiano(5, 5)
 pVertigo = PuntoCartesiano(6, 6)
 
 totaleAttrazioni = {
-    'Tazze': Attrazione("Tazze", pTazze, 10, 0, True, 5),
-    'Bruco': Attrazione("Bruco", pBruco, 10, 0, True, 5),
-    'Covo dei pirati': Attrazione("Covo dei pirati", pCovo, 10, 0, True, 5),
-    'Raptor': Attrazione("Raptor", pRaptor, 10, 0, False, 5),
-    'Blue Tornado': Attrazione("Blue Tornado", pTornado, 10, 0, False, 5), 
-    'Space Vertigo': Attrazione("Space Vertigo", pVertigo, 10, 0, False, 5)
+    'Tazze': Attrazione("Tazze", pTazze, 10, 10, True, 5),
+    'Bruco': Attrazione("Bruco", pBruco, 10, 10, True, 5),
+    'Covo dei pirati': Attrazione("Covo dei pirati", pCovo, 10, 10, True, 5),
+    'Raptor': Attrazione("Raptor", pRaptor, 10, 10, False, 5),
+    'Blue Tornado': Attrazione("Blue Tornado", pTornado, 10, 10, False, 5), 
+    'Space Vertigo': Attrazione("Space Vertigo", pVertigo, 10, 10, False, 5)
 }
 
 clientiServiti = []
-clientiInAttesa = [famigliaNeri[0], famigliaNeri[1]]
+clientiInAttesa = []
 
 # print(clientiInAttesa)
 
@@ -170,10 +172,25 @@ maxRep = 10
 for i in range(maxRep):
     for umano in clientiInSospeso:
         totaleAttrazioni[umano.attrazioniDesiderate[0]].accettaUmano(umano)
+        umano.attrazioniDesiderate.pop(0)
+        clientiInSospeso.remove(umano)
+    for attrazione in totaleAttrazioni.values():
+        if attrazione.capienzaAttuale == 0:
+            attrazione.tempoAttesa = 5 
+            while attrazione.tempoAttesa != 0:
+                attrazione.tempoAttesa -= 1
+                print(f"{attrazione.tempoAttesa = } minuti")
+            attrazione.capienzaAttuale = attrazione.capienzaMassima
+            
 
-# Capire se l'attesa per l'attarzione è finita (se tempo attesa = 0), allora attrazine finita, dunque si svuota (capire coem svuotare) Da clienti serviti a clienti in sospeso. 
+
+
+# Capire se l'attesa per l'attarzione è finita (se tempo attesa = 0), allora attrazine finita, dunque si svuota (capire come svuotare) Da clienti serviti a clienti in sospeso. 
+
+
+
 # Riempirla di nuova: da clienti in attesa a clienti serviti. Tempo di attesa = 0, quindi resettare tempo di attesa (non è detto che possa ripartire, poiché potrebbero eseserci non abbastanza clienti in attesa
-# richiede di settare una condizione per verificare se l'attrazione sia piena o meno: se peina riparte (tempo di attesa settato a 5); altrimenti sta lì ad aspettare, dunque aspettare i prossimi.
+# richiede di settare una condizione per verificare se l'attrazione sia piena o meno: se piena riparte (tempo di attesa settato a 5); altrimenti sta lì ad aspettare, dunque aspettare i prossimi.
 
 
 # Simula con un ciclo for le due code di ciascuna Attrazione, stampando a video per ogni iterazione il seguente messaggio:
